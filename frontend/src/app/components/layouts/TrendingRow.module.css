@@ -1,0 +1,33 @@
+.section {
+  padding: 1.5rem 1.5rem 1.25rem;
+  background: linear-gradient(to right, #020617, #0f172a);
+  border-top: 1px solid #020617;
+  border-bottom: 1px solid #020617;
+}
+
+.inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+}
+
+.row::-webkit-scrollbar {
+  height: 6px;
+}
+
+.row::-webkit-scrollbar-thumb {
+  background-color: #1f2937;
+  border-radius: 999px;
+}
+
+.item {
+  min-width: 260px;
+  flex: 0 0 auto;
+}
+

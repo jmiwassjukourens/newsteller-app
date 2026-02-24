@@ -1,0 +1,11 @@
+.section {
+  padding: 1.5rem 1.5rem 2rem;
+  background: #020617;
+  border-top: 1px solid #020617;
+}
+
+.inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+

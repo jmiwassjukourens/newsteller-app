@@ -1,0 +1,23 @@
+.section {
+  padding: 1.75rem 1.5rem 1.5rem;
+  background: radial-gradient(circle at top right, #b91c1c, #020617);
+  border-top: 1px solid rgba(239, 68, 68, 0.35);
+}
+
+.inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+

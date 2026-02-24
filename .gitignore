@@ -1,0 +1,13 @@
+# Node / Next
+node_modules/
+frontend/node_modules/
+.next/
+dist/
+
+# Env
+.env
+.env.local
+
+# OS
+.DS_Store
+
