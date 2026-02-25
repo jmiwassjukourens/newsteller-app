@@ -1,204 +1,173 @@
-.navbar {
+/* ===============================
+   HEADER BASE
+================================= */
+
+.header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  height: 64px;
-  background: #0d47a1;
+  background: #0b0b0b;
+  border-bottom: 1px solid #222;
+  color: white;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* ===============================
+   TOP BAR
+================================= */
+
+.topBar {
+  position: relative;
+  height: 72px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1.75rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+  padding: 0 24px;
 }
 
+/* Left hamburger */
 
-.logo a {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: white;
-  text-decoration: none;
-}
-
-
-.menuToggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: white;
-  cursor: pointer;
-}
-
-
-.menu {
-  display: flex;
-  list-style: none;
-  gap: 0.75rem;
-  align-items: center;
-}
-
-.menu li {
-  position: relative;
-}
-
-
-.menuItem {
+.hamburger {
   background: none;
   border: none;
   color: white;
-  font-size: 0.95rem;
-  font-weight: 500;
-  height: 36px;
-  padding: 0.4rem 0.6rem;
-  border-radius: 6px;
+  font-size: 1.6rem;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
 }
 
-.menuItem:hover {
-  background: rgba(255,255,255,0.15);
-}
+/* Center brand (absolute center trick) */
 
-
-.dropdown {
+.brand {
   position: absolute;
-  top: calc(100% + 6px);
   left: 50%;
-  transform: translateX(-50%) translateY(-4px);
-  background: white;
-  min-width: 180px;
-  border-radius: 8px;
-  padding: 0.35rem 0;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.15s ease;
+  transform: translateX(-50%);
 }
 
-.dropdown.show {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateX(-50%) translateY(0);
-}
-
-.dropdown li {
-  list-style: none;
-}
-
-.dropdown li a,
-.dropdownButton {
-  display: block;
-  padding: 0.6rem 1rem;
-  font-size: 0.95rem;
-  color: #111;
+.brand a {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #e11d2e;
   text-decoration: none;
+  letter-spacing: 1px;
+}
+
+/* Right actions */
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.signIn {
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
   background: none;
   border: none;
-  text-align: left;
   cursor: pointer;
 }
 
-.dropdown li a:hover,
-.dropdownButton:hover {
-  background: #f1f5f9;
+.signIn:hover {
+  opacity: 0.7;
 }
-.dropdownWrapper{ margin-top: 0.19rem; }
+
+.subscribe {
+  background: #e11d2e;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 3px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.subscribe:hover {
+  background: #b91c1c;
+}
+
+/* ===============================
+   SECOND NAV (sections)
+================================= */
+
+.bottomNav {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #222;
+  background: #0b0b0b;
+}
+
+.bottomNav a {
+  color: #d4d4d4;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.bottomNav a:hover {
+  color: white;
+}
+
+/* ===============================
+   DRAWER (side menu)
+================================= */
+
+.drawer {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.drawer.open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.drawerContent {
+  width: 260px;
+  height: 100%;
+  background: #111;
+  padding: 80px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.drawer.open .drawerContent {
+  transform: translateX(0);
+}
+
+.drawerContent a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.drawerContent a:hover {
+  color: #e11d2e;
+}
+
+/* ===============================
+   MOBILE
+================================= */
 
 @media (max-width: 768px) {
-  .menuToggle {
-    display: block;
+  .bottomNav {
+    display: none;
   }
 
-  .menu {
-    position: absolute;
-    top: 7.5vh;
-    left: 0;
-    width: 100%;
-    padding: 0;
-
-    display: flex;
-    flex-direction: column;
-    background: #0d47a1;
-
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-  }
-
-  .menu.active {
-    max-height: 600px;
-  }
-
-
-
-
-
-  .menuItem {
-    width: 100%;
-    height: auto;
-    margin: 0;
-  
-    font-size: 1rem;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-  }
-
-
-  .dropdown {
-    position: relative;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-
-    list-style: none;
-
-    background: #0b3c91;
-
-    max-height: 0;
-    overflow: hidden;
-
-    box-shadow: none;
-    border-radius: 0;
-
-    transform: none;
-    opacity: 1;
-  }
-
-  .dropdown.show {
-    max-height: 500px;
-  }
-
-
-  .dropdown li {
-    margin: 0;
-    padding: 0;
-    border-top: 1px solid rgba(255,255,255,0.12);
-  }
-
-  .dropdown li a,
-  .dropdownButton {
-    width: 100%;
-    margin: 0;
-    padding: 0.65rem 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 0.95rem;
-    color: #e3f2fd;
-    text-align: center;
-    background: transparent;
-  }
-
-  .dropdown li a:hover,
-  .dropdownButton:hover {
-    background: rgba(255,255,255,0.12);
+  .brand a {
+    font-size: 1.5rem;
   }
 }

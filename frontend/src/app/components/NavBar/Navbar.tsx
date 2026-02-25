@@ -1,108 +1,82 @@
 "use client";
 
 import Link from "next/link";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "@/app/context/AuthContext";
 import styles from "./Navbar.module.css";
 
 export default function Navbar() {
-  const [openMenu, setOpenMenu] = useState<string | null>(null);
-  const [mobileOpen, setMobileOpen] = useState(false);
   const { user, logout } = useAuth();
   const [mounted, setMounted] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
 
   const isLoggedIn = !!user;
 
-  useEffect(() => {
-  setMounted(true);
-  }, []);
-
-
-  if (!mounted) {
-    return null; 
-  }
-
-  const toggleDropdown = (menu: string) => {
-    setOpenMenu(openMenu === menu ? null : menu);
-  };
-
   return (
-    <nav className={styles.navbar}>
-      <div className={styles.logo}>
-        <Link href="/">App</Link>
+    <header className={styles.header}>
+      {/* 🔴 TOP BAR */}
+      <div className={styles.topBar}>
+        {/* Left */}
+        <button
+          className={styles.hamburger}
+          onClick={() => setDrawerOpen(!drawerOpen)}
+        >
+          ☰
+        </button>
+
+        {/* Center Logo */}
+        <div className={styles.brand}>
+          <Link href="/">The Brick Club</Link>
+        </div>
+
+        {/* Right */}
+        <div className={styles.actions}>
+          {isLoggedIn ? (
+            <button onClick={logout} className={styles.signIn}>
+              Logout
+            </button>
+          ) : (
+            <Link href="/login" className={styles.signIn}>
+              Sign In
+            </Link>
+          )}
+
+          <Link href="/subscribe" className={styles.subscribe}>
+            Subscribe
+          </Link>
+        </div>
       </div>
 
-      <button
-        className={styles.menuToggle}
-        onClick={() => setMobileOpen(!mobileOpen)}
+      {/* 🔴 SECONDARY NAV */}
+      <nav className={styles.bottomNav}>
+        <Link href="/news">Latest News</Link>
+        <Link href="/contact">Contact Us</Link>
+        <Link href="/digest">The Brick Digest</Link>
+        <Link href="/agenda">The Brick Agenda</Link>
+        <Link href="/connect">The Brick Connect</Link>
+        <Link href="/about">About Us</Link>
+      </nav>
+
+      {/* 🔴 SIDE DRAWER */}
+      <aside
+        className={`${styles.drawer} ${drawerOpen ? styles.open : ""}`}
+        onClick={() => setDrawerOpen(false)}
       >
-        {mobileOpen ? "✖" : "☰"}
-      </button>
-
-      <ul className={`${styles.menu} ${mobileOpen ? styles.active : ""}`}>
-        <li>
-          <Link href="/" className={styles.menuItem}>
-            Home
-          </Link>
-        </li>
-
-        {/* Features */}
-        <li className={styles.dropdownWrapper}>
-          <button
-            className={styles.menuItem}
-            onClick={() => toggleDropdown("features")}
-          >
-            Features ▾
-          </button>
-
-          <ul
-            className={`${styles.dropdown} ${
-              openMenu === "features" ? styles.show : ""
-            }`}
-          >
-            <li><Link href="/features/one">Feature One</Link></li>
-            <li><Link href="/features/two">Feature Two</Link></li>
-            <li><Link href="/features/three">Feature Three</Link></li>
-          </ul>
-        </li>
-
-        {isLoggedIn ? (
-          <li className={styles.dropdownWrapper}>
-            <button
-              className={styles.menuItem}
-              onClick={() => toggleDropdown("account")}
-            >
-              Account ▾
-            </button>
-
-            <ul
-              className={`${styles.dropdown} ${
-                openMenu === "account" ? styles.show : ""
-              }`}
-            >
-              <li><Link href="/dashboard">Dashboard</Link></li>
-              <li><Link href="/profile">Profile</Link></li>
-              <li>
-                <button
-                  className={styles.dropdownButton}
-                  onClick={logout}
-                >
-                  Logout
-                </button>
-              </li>
-            </ul>
-          </li>
-        ) : (
-          <>
-            <li>
-              <Link href="/login" className={styles.menuItem}>Login</Link>
-            </li>
-            <li>
-              <Link href="/register" className={styles.menuItem}>Register</Link>
-            </li>
-          </>
-        )}
-      </ul>
-    </nav>
+        <div
+          className={styles.drawerContent}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <Link href="/">Home</Link>
+          <Link href="/news">Latest News</Link>
+          <Link href="/digest">Digest</Link>
+          <Link href="/agenda">Agenda</Link>
+          <Link href="/about">About</Link>
+        </div>
+      </aside>
+    </header>
   );
 }
