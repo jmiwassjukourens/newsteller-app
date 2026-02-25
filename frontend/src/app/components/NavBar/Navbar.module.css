@@ -1,20 +1,16 @@
-/* ===============================
-   HEADER BASE
-================================= */
+
 
 .header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: #0b0b0b;
+  background: #161616;
   border-bottom: 1px solid #222;
   color: white;
   font-family: system-ui, -apple-system, sans-serif;
 }
 
-/* ===============================
-   TOP BAR
-================================= */
+
 
 .topBar {
   position: relative;
@@ -25,8 +21,6 @@
   padding: 0 24px;
 }
 
-/* Left hamburger */
-
 .hamburger {
   background: none;
   border: none;
@@ -35,7 +29,7 @@
   cursor: pointer;
 }
 
-/* Center brand (absolute center trick) */
+
 
 .brand {
   position: absolute;
@@ -50,8 +44,6 @@
   text-decoration: none;
   letter-spacing: 1px;
 }
-
-/* Right actions */
 
 .actions {
   display: flex;
@@ -87,9 +79,7 @@
   background: #b91c1c;
 }
 
-/* ===============================
-   SECOND NAV (sections)
-================================= */
+
 
 .bottomNav {
   height: 48px;
@@ -99,7 +89,7 @@
   gap: 34px;
   border-top: 1px solid #222;
   border-bottom: 1px solid #222;
-  background: #0b0b0b;
+  background: #161616;
 }
 
 .bottomNav a {
@@ -114,9 +104,6 @@
   color: white;
 }
 
-/* ===============================
-   DRAWER (side menu)
-================================= */
 
 .drawer {
   position: fixed;
@@ -158,9 +145,7 @@
   color: #e11d2e;
 }
 
-/* ===============================
-   MOBILE
-================================= */
+
 
 @media (max-width: 768px) {
   .bottomNav {
@@ -169,5 +154,36 @@
 
   .brand a {
     font-size: 1.5rem;
+  }
+
+    .bottomNav {
+    display: none;
+  }
+
+
+  .topBar {
+    justify-content: space-between;
+  }
+
+  .brand {
+    position: static;          
+    transform: none;
+  }
+
+  .brand a {
+    font-size: 1.3rem;
+  }
+
+  .actions {
+    gap: 10px;
+  }
+
+  .subscribe {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+  }
+
+  .signIn {
+    font-size: 0.8rem;
   }
 }
