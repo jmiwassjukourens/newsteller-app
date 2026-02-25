@@ -1,6 +1,6 @@
 .section {
   padding: 2rem 1.5rem 1.5rem;
-  background: #29292a;
+  background: #161616;
 }
 
 .inner {
@@ -11,13 +11,12 @@
 .headline {
   font-size: 2rem;
   font-weight: 700;
-  color: #f9fafb;
+  color: #f3f3f3;
   margin-bottom: 0.75rem;
 }
 
 .kicker {
   font-size: 0.9rem;
-  color: #9ca3af;
+  color: #8a8a8a;
   margin-bottom: 1.5rem;
 }
-

@@ -40,7 +40,7 @@
 .brand a {
   font-size: 2rem;
   font-weight: 700;
-  color: #e11d2e;
+  color: #C21D1D;
   text-decoration: none;
   letter-spacing: 1px;
 }
@@ -65,7 +65,7 @@
 }
 
 .subscribe {
-  background: #e11d2e;
+  background: #C21D1D;
   color: white;
   padding: 8px 14px;
   border-radius: 3px;
@@ -76,7 +76,7 @@
 }
 
 .subscribe:hover {
-  background: #b91c1c;
+  background: #750e0e;
 }
 
 

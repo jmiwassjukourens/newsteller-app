@@ -25,7 +25,14 @@ export function ArticleCard({ article, accentTagSlugs = [] }: ArticleCardProps) 
         style={
           article.coverImageUrl
             ? {
-                backgroundImage: `linear-gradient(to bottom, rgba(15,23,42,0.1), rgba(15,23,42,0.75)), url(${article.coverImageUrl})`,
+                backgroundImage: `
+                  linear-gradient(
+                    to bottom,
+                    rgba(22,22,22,0.15),
+                    rgba(22,22,22,0.85)
+                  ),
+                  url(${article.coverImageUrl})
+                `,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }

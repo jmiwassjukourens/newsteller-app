@@ -2,26 +2,27 @@
   display: flex;
   height: 90vh;
   width: 100%;
+  background: #161616;
 }
 
 .left {
   flex: 1;
-  background-color: #F5F7FA;
+  background-color: #161616;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-right: 1px solid #2a2a2a;
 }
 
 .logo {
   width: 55%;
-  max-width: 320px;
+  max-width: 300px;
   height: auto;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
+  opacity: 0.9;
 }
 
 .right {
   flex: 1;
-  background: #1976D2;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,40 +32,58 @@
   display: flex;
   flex-direction: column;
   width: 80%;
-  max-width: 320px;
-  background-color: #f2f2f2;
-  padding: 2.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  max-width: 340px;
+  background-color: #1c1c1c;
+  padding: 2.4rem;
+  border-radius: 10px;
+  border: 1px solid #2a2a2a;
 }
 
 .title {
   text-align: center;
-  margin-bottom: 1.5rem;
-  color: #0D47A1;
+  margin-bottom: 1.6rem;
+  color: #f3f3f3;
   font-weight: 600;
+  letter-spacing: 0.04em;
 }
 
 .input {
-  padding: 0.75rem;
+  padding: 0.7rem;
   margin-bottom: 1rem;
-  border: 1px solid #cccccc;
-  border-radius: 8px;
-  font-size: 1rem;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background: #161616;
+  color: #f3f3f3;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #3a3a3a;
+  background: #181818;
 }
 
 .button {
-  padding: 0.8rem;
-  background: #0D47A1;
+  padding: 0.75rem;
+  background: #e11d2e;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   font-weight: 600;
   cursor: pointer;
+  transition: background 0.18s ease;
+}
+
+.button:hover {
+  background: #c41626;
 }
 
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
+  }
+
+  .left {
+    display: none;
   }
 }

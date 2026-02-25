@@ -6,18 +6,17 @@
 }
 
 .title {
-  font-size: 0.9rem;
+  font-size: 0.78rem;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: #9ca3af;
+  letter-spacing: 0.22em;
+  color: #6b6b6b;
 }
 
 .titleAccent {
-  color: #f97316;
+  color: #C21D1D;
 }
 
 .subtitle {
   font-size: 0.8rem;
-  color: #6b7280;
+  color: #8a8a8a;
 }
-
