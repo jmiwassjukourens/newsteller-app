@@ -24,8 +24,7 @@ export default async function Home() {
         description="Get premium insights, regional intelligence, and exclusive analysis."
         backgroundImageUrl="/assets/subscribe-bg.png" 
       />
-      <br></br>
-      <br></br>
+
       
     </main>
   );
