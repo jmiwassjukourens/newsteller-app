@@ -52,12 +52,57 @@ export default function Navbar() {
       </div>
 
       {/* 🔴 SECONDARY NAV */}
+{/* 🔴 SECONDARY NAV */}
       <nav className={styles.bottomNav}>
         <Link href="/news">Latest News</Link>
         <Link href="/contact">Contact Us</Link>
-        <Link href="/digest">The Brick Digest</Link>
-        <Link href="/agenda">The Brick Agenda</Link>
-        <Link href="/connect">The Brick Connect</Link>
+
+        {/* DIGEST */}
+        <div className={styles.navItem}>
+          <span>The Brick Digest</span>
+
+          <div className={styles.dropdown}>
+            <Link href="/digest/all">All News</Link>
+            <Link href="/digest/beverly">Beverly Hills</Link>
+            <Link href="/digest/burbank">Burbank</Link>
+            <Link href="/digest/costa">Costa Mesa</Link>
+            <Link href="/digest/culver">Culver City</Link>
+            <Link href="/digest/glendale">Glendale</Link>
+            <Link href="/digest/irvine">Irvine</Link>
+            <Link href="/digest/long">Long Beach</Link>
+            <Link href="/digest/la">Los Angeles</Link>
+            <Link href="/digest/newport">Newport Beach</Link>
+            <Link href="/digest/pasadena">Pasadena</Link>
+            <Link href="/digest/sandiego">San Diego</Link>
+          </div>
+        </div>
+
+        {/* AGENDA */}
+        <div className={styles.navItem}>
+          <span>The Brick Agenda</span>
+
+          <div className={styles.dropdown}>
+            <Link href="/agenda/events">Upcoming Events</Link>
+            <Link href="/agenda/networking">Networking</Link>
+            <Link href="/agenda/webinars">Webinars</Link>
+            <Link href="/agenda/workshops">Workshops</Link>
+            <Link href="/agenda/conferences">Conferences</Link>
+          </div>
+        </div>
+
+        {/* CONNECT */}
+        <div className={styles.navItem}>
+          <span>The Brick Connect</span>
+
+          <div className={styles.dropdown}>
+            <Link href="/connect/members">Members</Link>
+            <Link href="/connect/partners">Partners</Link>
+            <Link href="/connect/community">Community</Link>
+            <Link href="/connect/resources">Resources</Link>
+            <Link href="/connect/careers">Careers</Link>
+          </div>
+        </div>
+
         <Link href="/about">About Us</Link>
       </nav>
 

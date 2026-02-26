@@ -29,12 +29,6 @@ public class NewsletterDataSeeder implements CommandLineRunner {
         this.articleRepository = articleRepository;
     }
 
-    /**
-     * IMPORTANTE:
-     * La transacción empieza acá cuando Spring ejecuta el CommandLineRunner.
-     * Toda la creación de entidades y acceso a colecciones LAZY ocurre
-     * con la sesión de Hibernate abierta.
-     */
     @Override
     @Transactional
     public void run(String... args) {

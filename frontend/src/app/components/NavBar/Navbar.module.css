@@ -90,6 +90,8 @@
   border-top: 1px solid #222;
   border-bottom: 1px solid #222;
   background: #161616;
+  position: relative;
+  overflow: visible;
 }
 
 .bottomNav a {
@@ -186,4 +188,70 @@
   .signIn {
     font-size: 0.8rem;
   }
+}
+
+/* ---------- DROPDOWN SYSTEM ---------- */
+
+.navItem {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.navItem span {
+  color: #d4d4d4;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.navItem:hover span {
+  color: white;
+}
+
+/* Dropdown panel */
+.dropdown {
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 260px;
+  background: #1b1b1b;
+  border: 1px solid #2a2a2a;
+  padding: 18px 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.25s ease;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+  z-index: 999;
+}
+
+/* Show on hover */
+.navItem:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Links inside dropdown */
+.dropdown a {
+  padding: 10px 22px;
+  color: #e4e4e4;
+  text-decoration: none;
+  font-size: 0.88rem;
+  transition: all 0.2s ease;
+}
+
+.dropdown a:hover {
+  background: #2a2a2a;
+  color: white;
+  padding-left: 28px;
 }
