@@ -1,0 +1,100 @@
+.section {
+  padding: 2rem 1.5rem;
+  background: #161616; /* mismo fondo que el resto */
+  
+}
+
+/* este es el bloque visual real */
+.containerBackground {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2rem 2.5rem;
+  border-radius: 6px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* variante gris */
+.lightBox {
+  background: linear-gradient(90deg, #2f2f2f, #3a3a3a);
+}
+
+/* variante con imagen */
+.imageBox {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* overlay oscuro arriba de la imagen */
+.imageBox::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(20,20,20,0.55);
+}
+
+.imageBox > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* texto */
+.text h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #f5f5f5;
+  margin-bottom: 0.4rem;
+}
+
+.text p {
+  font-size: 0.9rem;
+  color: #c7c7c7;
+  max-width: 520px;
+}
+
+/* form */
+.form {
+  display: flex;
+  min-width: 360px;
+}
+
+.form input {
+  flex: 1;
+  padding: 12px 14px;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  background: #e5e5e5;
+  color: #222;
+}
+
+.form button {
+  padding: 0 18px;
+  border: none;
+  background: #C21D1D;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.form button:hover {
+  background: #8f1515;
+}
+
+@media (max-width: 900px) {
+  .containerBackground {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form {
+    width: 100%;
+    min-width: unset;
+  }
+}
