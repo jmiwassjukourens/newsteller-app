@@ -4,8 +4,10 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.app.springbootcrud.entities.Article;
 import com.app.springbootcrud.entities.ArticleStatus;
@@ -55,6 +57,13 @@ public class ArticleServiceImpl implements ArticleService {
                 ArticleStatus.PUBLISHED,
                 date
         );
+    }
+
+    @Override
+    public Article getArticleBySlug(String slug) {
+        return articleRepository
+                .findBySlugAndStatus(slug, ArticleStatus.PUBLISHED)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Article not found"));
     }
 }
 

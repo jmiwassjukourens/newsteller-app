@@ -2,6 +2,7 @@ package com.app.springbootcrud.repositories;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -23,5 +24,9 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
     List<Article> findByTagType(@Param("type") TagType type);
 
     List<Article> findByStatusAndPublishedAtAfterOrderByPublishedAtDesc(ArticleStatus status, LocalDateTime date);
+
+    Optional<Article> findBySlugAndStatus(String slug, ArticleStatus status);
+
+    
 }
 

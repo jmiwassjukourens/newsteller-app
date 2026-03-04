@@ -50,6 +50,12 @@ public class ArticleController {
         return articles.stream().map(this::toDto).collect(Collectors.toList());
     }
 
+    @GetMapping("/{slug}")
+    public ArticleDto getBySlug(@PathVariable String slug) {
+        Article article = articleService.getArticleBySlug(slug);
+        return toDto(article);
+    }
+
     private ArticleDto toDto(Article article) {
         ArticleDto dto = new ArticleDto();
         dto.setId(article.getId());

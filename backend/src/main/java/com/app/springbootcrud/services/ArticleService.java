@@ -16,5 +16,7 @@ public interface ArticleService {
     List<Article> getBreakingNews();
 
     List<Article> getPublishedSince(LocalDateTime date);
+
+    Article getArticleBySlug(String slug);
 }
 
